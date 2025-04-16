@@ -77,7 +77,7 @@ const Solutions = () => {
         'Flexible policy terms',
         'Optional riders for enhanced protection'
       ],
-      image: 'https://images.unsplash.com/photo-1531983412531-1f49a365ffed?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1609220136736-443140cffec6?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'health',

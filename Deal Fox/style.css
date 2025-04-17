@@ -1,0 +1,146 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif; /* Use your Figma font */
+}
+
+/* Updated Navigation Styles */
+.main-nav {
+    display: flex;
+    justify-content: space-between; /* Keep logo and login at edges */
+    align-items: center;
+    padding: 1rem 5%;
+    background: rgba(255, 255, 255, 0.95);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    position: absolute; /* Position absolutely for true centering */
+    left: 50%;
+    transform: translateX(-50%); /* Perfect horizontal centering */
+}
+
+.login-btn {
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    margin-left: auto; /* Push login to far right */
+}
+
+/* Keep existing link styles */
+.nav-links a {
+    text-decoration: none;
+    color: #100F0E;
+    font-weight: 400;
+    transition: color 0.3s ease;
+    font-size: 16px;
+}
+
+.hero {
+    background: #F8F7F6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #100F0E;
+    padding-top: 80px; /* Offset for fixed nav */
+}
+
+.hero-content {
+    max-width: 576px;
+    padding: 0;
+    margin-bottom: 80px; /* Add consistent spacing between content and cards */
+    margin-top: 80px;
+}
+
+.start-line {
+    font-size: 14px;
+    font-weight: medium;
+    line-height: auto;
+    margin-bottom: -0.5px;
+}
+
+.hero-title {
+    font-size: 72px;
+    margin-top : 16px;
+    font-weight: 400;
+    line-height: 78px;
+    letter-spacing: -3.6px;
+    color: #100F0E;
+}
+
+
+.hero-text {
+    color: #58524C;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 30.6px;
+    letter-spacing: -1.08px;
+    margin-top: 16px;
+}
+
+.cta-btn {
+    background: #FF9B37; /* Use your brand color from Figma */
+    color: white;
+    border: none;
+    width: 223px;
+    height: 60px;
+    border-radius: 30px;
+    font-size: 20px;
+    font-weight: medium;
+    line-height: 30px;
+    letter-spacing: -0.8px;
+    margin-top: 24px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.cta-btn:hover {
+    transform: scale(1.05);
+}
+
+.hero-cards {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: 405.54px;
+    width: 766.02px;
+    padding-left: 321px;
+    padding-right: 352.98px;
+    pointer-events: none;
+}
+
+.card {
+    position: absolute;
+    width: 230px;
+    border-radius: 24px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.card-1 {
+    transform: rotate(-10deg);
+    left: -160px;
+    z-index: 1;
+}
+
+.card-2 {
+    transform: rotate(0deg);
+    left: 0;
+    z-index: 2;
+    height: 341px;
+    width: 384px;
+}
+
+.card-3 {
+    transform: rotate(10deg);
+    left: 160px;
+    z-index: 1;
+}

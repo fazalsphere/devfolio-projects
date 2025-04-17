@@ -20,25 +20,57 @@
 
 .nav-links {
     display: flex;
-    gap: 2rem;
-    position: absolute; /* Position absolutely for true centering */
+    gap: 32px; /* Spacing between nav items from Figma */
+    position: absolute;
     left: 50%;
-    transform: translateX(-50%); /* Perfect horizontal centering */
+    transform: translateX(-50%);
+    align-items: center;
+    
+
 }
 
-.login-btn {
-    padding: 0.5rem 1.5rem;
-    border-radius: 25px;
-    margin-left: auto; /* Push login to far right */
-}
-
-/* Keep existing link styles */
 .nav-links a {
     text-decoration: none;
-    color: #100F0E;
+    color: #58524C;
     font-weight: 400;
-    transition: color 0.3s ease;
     font-size: 16px;
+    border-radius: 26px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-align: center;
+    width: 99px;
+    height: 52px;
+    line-height: 52px;
+    display: inline-block;
+}
+
+/* Specific style for "Bald verfügbar" */
+.nav-links a[href="#"]:nth-child(3) {
+    width: auto;
+    padding: 0 24px;
+}
+
+.nav-links a[href="#"]:nth-child(3):hover,
+.nav-links a[href="#"]:nth-child(3).active {
+    width: auto;
+    min-width: 99px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    background-color: #100F0E;
+    color: white;
+}
+
+/* Style for the login button */
+.login-btn {
+    padding: 11px 24px;
+    border-radius: 26px;
+    color: #100F0E;
+    font-size: 16px;
+    font-weight: medium;
+    line-height: 30px;
+    letter-spacing: -0.8px;
+    text-decoration: none;
 }
 
 .hero {
@@ -87,7 +119,7 @@
 }
 
 .cta-btn {
-    background: #FF9B37; /* Use your brand color from Figma */
+    background: linear-gradient(90deg, #FF9837 0%, #FF6423 100%);
     color: white;
     border: none;
     width: 223px;
@@ -108,39 +140,59 @@
 
 .hero-cards {
     position: relative;
+    width: 766.02px;
+    height: 405.54px;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
-    height: 405.54px;
-    width: 766.02px;
-    padding-left: 321px;
-    padding-right: 352.98px;
-    pointer-events: none;
+    align-items: center;
 }
 
 .card {
     position: absolute;
-    width: 230px;
     border-radius: 24px;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
 
 .card-1 {
+    width: 255.02px;
+    height: 326px;
     transform: rotate(-10deg);
-    left: -160px;
+    left: 0;
     z-index: 1;
 }
 
 .card-2 {
-    transform: rotate(0deg);
-    left: 0;
-    z-index: 2;
-    height: 341px;
     width: 384px;
+    height: 341px;
+    transform: translateY(-20px);
+    z-index: 3;
+    left: 50%;
+    margin-left: -192px; /* Half of the center card width */
 }
 
 .card-3 {
+    width: 255.02px;
+    height: 326px;
     transform: rotate(10deg);
-    left: 160px;
+    right: 0;
     z-index: 1;
+}
+
+/* Responsive styles just for navigation */
+@media (max-width: 1024px) {
+    .nav-links {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 900px) {
+    .nav-links a {
+        font-size: 14px;
+    }
+}
+
+.logo {
+    cursor: pointer;
 }

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -75,7 +77,9 @@
 
 .hero {
     background: #F8F7F6;
-    min-height: 100vh;
+
+    max-width: 100%;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -102,7 +106,7 @@
 .hero-title {
     font-size: 72px;
     margin-top : 16px;
-    font-weight: 400;
+    font-weight: normal;
     line-height: 78px;
     letter-spacing: -3.6px;
     color: #100F0E;
@@ -196,3 +200,162 @@
 .logo {
     cursor: pointer;
 }
+
+/* Top Highlight Deals Section */
+.highlight-deals {
+    padding: 80px 80px;
+    background: #FFFFFF;
+}
+
+.section-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.section-header h2 {
+    font-size: 40px;
+    font-weight: normal;
+    line-height: 64px;
+    letter-spacing: -2px;
+    color: #000000;
+}
+
+
+.deals-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.deal-card {
+    background: #FFFFFF;
+    height: 540px;
+    width: 325px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+    margin: 0 auto;
+}
+
+.deal-card:hover {
+    transform: translateY(-4px);
+}
+
+.card-image {
+    position: relative;
+    width: 325px;
+    height: 305px; /* Match image height */
+    border-radius: 20px 20px 0 0;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.deal-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 8px 16px;
+    background: #FF7220;
+    color: #FFFFFF;
+    border-radius: 16px;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.card-content {
+    padding: 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.slot-tag {
+    color: #FF5020;
+    font-size: 14px;
+    font-style: italic;
+    margin-bottom: 8px;
+}
+
+.card-header h3 {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28px;
+    margin-bottom: 8px;
+    color: #100F0E;
+}
+
+.description {
+    font-size: 16px;
+    line-height: 24px;
+    color: #58524C;
+    margin-bottom: 16px;
+}
+
+.price {
+    margin-top: auto;
+    margin-bottom: 16px;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 28px;
+    color: #000000;
+}
+
+.price::before {
+    content: "CHF";
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 28px;
+    letter-spacing: -4%;
+    margin-right: 4px;
+    color: #100F0E;
+}
+
+.price::after {
+    content: "00";
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 28px;
+    letter-spacing: -4%;
+    vertical-align: super;
+}
+
+.card-btn {
+    width: 277px;
+    height: 52px;
+    margin: 0 auto 24px;
+    background: none;
+    border: 0.5px solid #FF6524;
+    border-radius: 26px;
+    color: #FF6524;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.card-btn:hover {
+    background: linear-gradient(90deg, #FF9837 0%, #FF6423 100%);
+    border: none;
+    transform: scale(1.02);
+    color: #FFFFFF;
+}
+

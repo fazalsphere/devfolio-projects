@@ -222,26 +222,44 @@
     color: #000000;
 }
 
+.card-content {
+    padding: 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
 
 .deals-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
+    gap: 32px;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 20px;
+    min-height: 600px; /* Prevent grid collapse during filtering */
+    position: relative;
 }
 
 .deal-card {
     background: #FFFFFF;
-    height: 540px;
     width: 325px;
+    height: auto;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s ease;
     margin: 0 auto;
+    transition: all 0.4s ease;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.deal-card.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+    position: absolute;
+    visibility: hidden;
 }
 
 .deal-card:hover {
@@ -250,8 +268,8 @@
 
 .card-image {
     position: relative;
-    width: 325px;
-    height: 305px; /* Match image height */
+    width: 100%;
+    height: 220px;
     border-radius: 20px 20px 0 0;
     overflow: hidden;
 }
@@ -260,6 +278,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
 }
 
 .deal-tag {
@@ -274,18 +293,35 @@
     font-weight: normal;
 }
 
-.card-content {
-    padding: 24px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
+.deal-tag-today {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 8px 16px;
+    background: #000000;
+    color: #FFFFFF;
+    border-radius: 16px;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.deal-tag-new {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 8px 16px;
+    background: #FFFFFF;
+    color: #000000;
+    border-radius: 16px;
+    font-size: 14px;
+    font-weight: normal;
 }
 
 .card-header {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     gap: 8px;
+    margin-bottom: 16px;
 }
 
 .slot-tag {
@@ -357,5 +393,135 @@
     border: none;
     transform: scale(1.02);
     color: #FFFFFF;
+}
+
+/* Weitere Deals Section */
+.filter-nav {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-bottom: 48px;
+}
+
+.filter-btn {
+    padding: 12px 24px;
+    border-radius: 100px;
+    border: none;
+    background: #F8F7F6;
+    color: #58524C;
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: #FF7220;
+    color: white;
+}
+
+/* Spacing between sections */
+.weitere-deals {
+    margin-top: 80px;
+    padding: 80px 80px;
+    background: #FFFFFF;
+}
+
+/* How it Works Section */
+.how-it-works {
+    padding: 80px 80px;
+    text-align: center;
+    background: #FFFFFF;
+    padding-top: 160px; /* Account for fixed nav + section padding */
+    margin-top: -80px; /* Offset the extra padding to maintain section spacing */
+}
+
+.how-it-works .section-title {
+    font-size: 40px;
+    font-weight: normal;
+    line-height: 64px;
+    letter-spacing: -2px;
+    color: #100F0E;
+    margin-bottom: 16px;
+}
+
+.how-it-works .section-description {
+    font-size: 20px;
+    line-height: 30px;
+    color: #58524C;
+    margin-bottom: 48px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 1182px;
+    height: 644px;
+    margin: 0 auto;
+    border-radius: 24px;
+    overflow: hidden;
+    background: #F8F7F6;
+}
+
+/* Remove the padding-top aspect ratio since we have a fixed height */
+.video-container::before {
+    display: none;
+}
+
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 24px;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    z-index: 2;
+    background: transparent;
+}
+
+.play-button img {
+    width: 80px;
+    height: 80px;
+    transition: transform 0.3s ease;
+}
+
+.play-button:hover img {
+    transform: scale(1.1);
+}
+
+.play-button.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Animation for section fade-in */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 

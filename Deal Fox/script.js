@@ -79,4 +79,24 @@ document.addEventListener('DOMContentLoaded', function() {
     fadeElements.forEach(element => {
         fadeObserver.observe(element);
     });
+
+    // Initialize Swiper
+    const testimonialSwiper = new Swiper('.testimonials-slider', {
+        slidesPerView: 1,
+        spaceBetween: 32,
+        loop: true,
+        speed: 800,
+        grabCursor: true,
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+            bulletClass: 'swiper-pagination-bullet',
+            bulletActiveClass: 'swiper-pagination-bullet-active'
+        }
+    });
 }); 

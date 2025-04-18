@@ -739,3 +739,213 @@
     }
 }
 
+/* Footer Styles */
+.main-footer {
+    background: #FFFFFF;
+    padding: 80px 5% 0;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+    gap: 32px;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding-bottom: 48px;
+}
+
+.footer-column h4 {
+    color: #100F0E;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+
+/* Brand Section */
+.brand-section {
+    max-width: 320px;
+}
+
+.footer-logo {
+    height: 40px;
+    margin-bottom: 24px;
+}
+
+.brand-tagline {
+    font-size: 16px;
+    font-weight: 500;
+    color: #100F0E;
+    margin-bottom: 16px;
+}
+
+.brand-description {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #58524C;
+    margin-bottom: 24px;
+}
+
+.swiss-badge {
+    margin-top: auto;
+}
+
+.swiss-badge-icon {
+    height: 48px;
+}
+
+/* Link Columns */
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 12px;
+}
+
+.footer-column ul a {
+    color: #58524C;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.footer-column ul a:hover {
+    color: #FF6423;
+}
+
+/* Newsletter Section */
+.newsletter-form {
+    max-width: 100%;
+}
+
+.input-wrapper {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.input-wrapper input {
+    flex: 1;
+    height: 52px;
+    padding: 0 16px;
+    border: 1px solid #E0DEDA;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #100F0E;
+}
+
+.input-wrapper input::placeholder {
+    color: #58524C;
+}
+
+.input-wrapper button {
+    width: 52px;
+    height: 52px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #FF9837 0%, #FF6423 100%);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-wrapper button:hover {
+    transform: scale(1.02);
+}
+
+.input-wrapper button img {
+    width: 24px;
+    height: 24px;
+}
+
+.newsletter-disclaimer {
+    font-size: 14px;
+    color: #58524C;
+    line-height: 1.5;
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    padding: 32px 0;
+    border-top: 1px solid #E0DEDA;
+}
+
+.social-links a {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: scale(1.1);
+}
+
+.social-links img {
+    width: 24px;
+    height: 24px;
+}
+
+/* Copyright Bar */
+.copyright-bar {
+    text-align: center;
+    padding: 24px 0;
+    border-top: 1px solid #E0DEDA;
+}
+
+.copyright-bar p {
+    color: #58524C;
+    font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .brand-section {
+        grid-column: 1 / -1;
+        max-width: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-footer {
+        padding: 48px 5% 0;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .footer-column {
+        text-align: center;
+    }
+
+    .footer-column ul {
+        text-align: center;
+    }
+
+    .brand-description {
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .newsletter-form {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+

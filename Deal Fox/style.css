@@ -883,7 +883,8 @@
     height: 52px;
     border: none;
     border-radius: 8px;
-    background: linear-gradient(90deg, #FF9837 0%, #FF6423 100%);
+    background: none;
+    border: 0.5px solid #FF6524;
     cursor: pointer;
     transition: transform 0.3s ease;
     display: flex;
@@ -892,7 +893,10 @@
 }
 
 .input-wrapper button:hover {
+    background: linear-gradient(90deg, #FF9837 0%, #FF6423 100%);
+    border: none;
     transform: scale(1.02);
+    color: #FFFFFF;
 }
 
 .input-wrapper button img {

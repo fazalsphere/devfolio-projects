@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Get all filter buttons and deal cards
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const dealCards = document.querySelectorAll('.deal-card');
+    // Get all filter buttons and deal cards ONLY from the Weitere Deals section
+    const filterButtons = document.querySelectorAll('.weitere-deals .filter-btn');
+    const weitereDealsSection = document.querySelector('.weitere-deals');
+    const dealCards = weitereDealsSection.querySelectorAll('.deal-card');
 
     // Add click event listeners to all filter buttons
     filterButtons.forEach(button => {
@@ -19,29 +20,49 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Function to filter cards
-    function filterCards(category) {
-        // First, fade out all cards
+    // Function to filter cards with smooth transitions
+    async function filterCards(category) {
+        // Step 1: Fade out all currently visible cards
+        const visibleCards = weitereDealsSection.querySelectorAll('.deal-card:not(.hidden)');
+        await Promise.all([...visibleCards].map(card => {
+            return new Promise(resolve => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(10px)';
+                setTimeout(resolve, 300); // Match this with CSS transition duration
+            });
+        }));
+
+        // Step 2: Hide non-matching cards and prepare matching ones
         dealCards.forEach(card => {
-            card.classList.add('hidden');
+            const cardCategory = card.getAttribute('data-category');
+            if (category === 'all' || category === cardCategory) {
+                card.classList.remove('hidden');
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(10px)';
+            } else {
+                card.classList.add('hidden');
+            }
         });
 
-        // Wait for fade out to complete
-        setTimeout(() => {
-            // Show relevant cards
-            dealCards.forEach(card => {
-                const cardCategory = card.getAttribute('data-category');
-                
-                if (category === 'all' || category === cardCategory) {
-                    // Remove hidden class to trigger fade in
-                    card.classList.remove('hidden');
-                }
+        // Step 3: Trigger reflow to ensure transitions work
+        weitereDealsSection.offsetHeight;
+
+        // Step 4: Fade in matching cards
+        const matchingCards = weitereDealsSection.querySelectorAll('.deal-card:not(.hidden)');
+        matchingCards.forEach(card => {
+            requestAnimationFrame(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
             });
-        }, 400); // Match this with CSS transition duration
+        });
     }
 
-    // Show all cards initially
-    dealCards.forEach(card => card.classList.remove('hidden'));
+    // Initialize all cards as visible
+    dealCards.forEach(card => {
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+        card.classList.remove('hidden');
+    });
 
     // Video Player Functionality
     const video = document.getElementById('howItWorksVideo');
@@ -69,11 +90,11 @@ document.addEventListener('DOMContentLoaded', function() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                fadeObserver.unobserve(entry.target); // Stop observing once visible
+                fadeObserver.unobserve(entry.target);
             }
         });
     }, {
-        threshold: 0.1 // Trigger when 10% of the element is visible
+        threshold: 0.1
     });
 
     fadeElements.forEach(element => {

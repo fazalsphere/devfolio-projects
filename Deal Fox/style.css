@@ -248,22 +248,12 @@
     flex-direction: column;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     margin: 0 auto;
-    transition: all 0.4s ease;
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-}
-
-.deal-card.hidden {
-    opacity: 0;
-    transform: translateY(20px);
-    pointer-events: none;
-    position: absolute;
-    visibility: hidden;
+    transition: all 0.3s ease;
 }
 
 .deal-card:hover {
     transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
 .card-image {
@@ -947,5 +937,28 @@
         max-width: 400px;
         margin: 0 auto;
     }
+}
+
+/* Weitere Deals specific styles for filter transitions */
+.weitere-deals .deal-card {
+    opacity: 1;
+    transform: translateY(0);
+    will-change: opacity, transform;
+}
+
+.weitere-deals .deal-card.hidden {
+    display: none;
+}
+
+/* Preserve hover effect during filtering */
+.weitere-deals .deal-card:not(.hidden):hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Ensure proper spacing in grid */
+.weitere-deals .deals-grid {
+    min-height: 600px;
+    transition: min-height 0.3s ease;
 }
 

@@ -1,4 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Card reveal animation
+    setTimeout(() => {
+        const modelCard = document.querySelector('.card-model');
+        const guitarCard = document.querySelector('.card-guitar');
+        
+        modelCard.style.animation = 'left-card-reveal 1s cubic-bezier(0.33, 1, 0.68, 1) forwards';
+        guitarCard.style.animation = 'right-card-reveal 1s cubic-bezier(0.33, 1, 0.68, 1) forwards';
+    }, 800);
+
     // Get all filter buttons and deal cards ONLY from the Weitere Deals section
     const filterButtons = document.querySelectorAll('.weitere-deals .filter-btn');
     const weitereDealsSection = document.querySelector('.weitere-deals');
